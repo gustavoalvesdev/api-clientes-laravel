@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
     public function all()
     {
-        // TODO: all method implementation
+        $array = ['error' => ''];
+
+        $customers = Customer::all();
+
+        $array['customers'] = $customers;
+
+        return $array;
     }
 
     public function one($id)
