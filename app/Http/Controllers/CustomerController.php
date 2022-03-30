@@ -20,7 +20,22 @@ class CustomerController extends Controller
 
     public function one($id)
     {
-        // TODO: one method implementation
+
+        $array = ['error' => ''];
+
+        $customer = Customer::find($id);
+
+        if ($customer) {
+
+            $array['customer'] = $customer;
+
+        } else {
+
+            $array['error'] = 'Erro! Cliente ' . $id . ' não encontrado!';
+
+        }
+
+        return $array;
     }
 
     public function add(Request $request)
